@@ -338,7 +338,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$AgeRangeAssignedTargetingOptionDetails {
     /**
-     * Output only. The age range of an audience. We only support targeting a continuous age range of an audience. Thus, the age range represented in this field can be 1) targeted solely, or, 2) part of a larger continuous age range. The reach of a continuous age range targeting can be expanded by also targeting an audience of an unknown age.
+     * The age range of an audience. We only support targeting a continuous age range of an audience. Thus, the age range represented in this field can be 1) targeted solely, or, 2) part of a larger continuous age range. The reach of a continuous age range targeting can be expanded by also targeting an audience of an unknown age. Output only in v1. Required in v2.
      */
     ageRange?: string | null;
     /**
@@ -706,7 +706,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$AudioContentTypeAssignedTargetingOptionDetails {
     /**
-     * Output only. The audio content type.
+     * The audio content type. Output only in v1. Required in v2.
      */
     audioContentType?: string | null;
     /**
@@ -1482,7 +1482,7 @@ export namespace displayvideo_v1 {
      */
     adType?: string | null;
     /**
-     * Output only. The content instream position for video or audio ads.
+     * The content instream position for video or audio ads. Output only in v1. Required in v2.
      */
     contentInstreamPosition?: string | null;
     /**
@@ -1508,7 +1508,7 @@ export namespace displayvideo_v1 {
      */
     adType?: string | null;
     /**
-     * Output only. The content outstream position.
+     * The content outstream position. Output only in v1. Required in v2.
      */
     contentOutstreamPosition?: string | null;
     /**
@@ -1809,7 +1809,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$CreativeConfig {
     /**
-     * The type of creative that can be assigned to the inventory source.
+     * The type of creative that can be assigned to the inventory source. Only the following types are supported: * `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_VIDEO`
      */
     creativeType?: string | null;
     /**
@@ -2042,7 +2042,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$DeviceTypeAssignedTargetingOptionDetails {
     /**
-     * Output only. The display name of the device type.
+     * The display name of the device type. Output only in v1. Required in v2.
      */
     deviceType?: string | null;
     /**
@@ -2235,7 +2235,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$EnvironmentAssignedTargetingOptionDetails {
     /**
-     * Output only. The serving environment.
+     * The serving environment. Output only in v1. Required in v2.
      */
     environment?: string | null;
     /**
@@ -2480,7 +2480,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$FrequencyCap {
     /**
-     * The maximum number of times a user may be shown with the same ad during this period. Must be greater than 0. Required when unlimited is `false`.
+     * The maximum number of times a user may be shown the same ad during this period. Must be greater than 0. Required when unlimited is `false` and max_views is not set.
      */
     maxImpressions?: number | null;
     /**
@@ -2501,7 +2501,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$GenderAssignedTargetingOptionDetails {
     /**
-     * Output only. The gender of the audience.
+     * The gender of the audience. Output only in v1. Required in v2.
      */
     gender?: string | null;
     /**
@@ -3179,7 +3179,7 @@ export namespace displayvideo_v1 {
      */
     flight?: Schema$LineItemFlight;
     /**
-     * Required. The frequency capping setting of the line item.
+     * Required. The impression frequency cap settings of the line item. The max_impressions field in this settings object must be used if assigning a limited cap.
      */
     frequencyCap?: Schema$FrequencyCap;
     /**
@@ -3765,7 +3765,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$NativeContentPositionAssignedTargetingOptionDetails {
     /**
-     * Output only. The content position.
+     * The content position. Output only in v1. Required in v2.
      */
     contentPosition?: string | null;
     /**
@@ -3871,7 +3871,7 @@ export namespace displayvideo_v1 {
    */
   export interface Schema$OmidAssignedTargetingOptionDetails {
     /**
-     * Output only. The type of Open Measurement enabled inventory.
+     * The type of Open Measurement enabled inventory. Output only in v1. Required in v2.
      */
     omid?: string | null;
     /**
@@ -4506,7 +4506,7 @@ export namespace displayvideo_v1 {
      */
     excludedTargetingOptionId?: string | null;
     /**
-     * Output only. An enum for the DV360 Sensitive category content classifier.
+     * An enum for the DV360 Sensitive category content classifier. Output only in v1. Required in v2.
      */
     sensitiveCategory?: string | null;
   }
@@ -4922,7 +4922,7 @@ export namespace displayvideo_v1 {
      */
     targetingOptionId?: string | null;
     /**
-     * Output only. The video player size.
+     * The video player size. Output only in v1. Required in v2.
      */
     videoPlayerSize?: string | null;
   }
@@ -4944,7 +4944,7 @@ export namespace displayvideo_v1 {
      */
     targetingOptionId?: string | null;
     /**
-     * Output only. The predicted viewability percentage.
+     * The predicted viewability percentage. Output only in v1. Required in v2.
      */
     viewability?: string | null;
   }
