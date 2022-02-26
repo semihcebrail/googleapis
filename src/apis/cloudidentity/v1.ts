@@ -671,6 +671,10 @@ export namespace cloudidentity_v1 {
      * Optional. [Resource name](https://cloud.google.com/apis/design/resource_names) of the customer. If you're using this API for your own organization, use `customers/my_customer` If you're using this API to manage another organization, use `customers/{customer\}`, where customer is the customer to whom the device belongs.
      */
     customer?: string | null;
+    /**
+     * Optional. Specifies if a user is able to factory reset a device after a Device Wipe. On iOS, this is called "Activation Lock", while on Android, this is known as "Factory Reset Protection". If true, this protection will be removed from the device, so that a user can successfully factory reset. If false, the setting is untouched on the device.
+     */
+    removeResetLock?: boolean | null;
   }
   /**
    * Response message for wiping all data on the device.
@@ -1086,27 +1090,6 @@ export namespace cloudidentity_v1 {
      * The `MembershipRole`s to be updated. Only `MEMBER` `MembershipRole` can currently be updated.
      */
     membershipRole?: Schema$MembershipRole;
-  }
-  /**
-   * The `UserInvitation` resource represents an email that can be sent to an unmanaged user account inviting them to join the customer's Google Workspace or Cloud Identity account. An unmanaged account shares an email address domain with the Google Workspace or Cloud Identity account but is not managed by it yet. If the user accepts the `UserInvitation`, the user account will become managed.
-   */
-  export interface Schema$UserInvitation {
-    /**
-     * Number of invitation emails sent to the user.
-     */
-    mailsSentCount?: string | null;
-    /**
-     * Shall be of the form `customers/{customer\}/userinvitations/{user_email_address\}`.
-     */
-    name?: string | null;
-    /**
-     * State of the `UserInvitation`.
-     */
-    state?: string | null;
-    /**
-     * Time when the `UserInvitation` was last updated.
-     */
-    updateTime?: string | null;
   }
 
   export class Resource$Devices {
@@ -1900,7 +1883,8 @@ export namespace cloudidentity_v1 {
      *     requestBody: {
      *       // request body parameters
      *       // {
-     *       //   "customer": "my_customer"
+     *       //   "customer": "my_customer",
+     *       //   "removeResetLock": false
      *       // }
      *     },
      *   });
