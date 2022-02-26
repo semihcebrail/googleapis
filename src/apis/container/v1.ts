@@ -431,6 +431,10 @@ export namespace container_v1 {
      */
     id?: string | null;
     /**
+     * Configuration for Identity Service component.
+     */
+    identityServiceConfig?: Schema$IdentityServiceConfig;
+    /**
      * The initial Kubernetes version for this cluster. Valid versions are those found in validMasterVersions returned by getServerConfig. The version can be upgraded over time; such upgrades are reflected in currentMasterVersion and currentNodeVersion. Users may specify either explicit versions offered by Kubernetes Engine or version aliases, which have the following behavior: - "latest": picks the highest valid Kubernetes version - "1.X": picks the highest valid patch+gke.N patch in the 1.X version - "1.X.Y": picks the highest valid gke.N patch in the 1.X.Y version - "1.X.Y-gke.N": picks an explicit Kubernetes version - "","-": picks the default Kubernetes version
      */
     initialClusterVersion?: string | null;
@@ -652,6 +656,10 @@ export namespace container_v1 {
      * The desired GCFS config for the cluster
      */
     desiredGcfsConfig?: Schema$GcfsConfig;
+    /**
+     * The desired Identity Service component configuration.
+     */
+    desiredIdentityServiceConfig?: Schema$IdentityServiceConfig;
     /**
      * The desired image type for the node pool. NOTE: Set the "desired_node_pool" field as well.
      */
@@ -1024,6 +1032,15 @@ export namespace container_v1 {
      * Whether the HTTP Load Balancing controller is enabled in the cluster. When enabled, it runs a small pod in the cluster that manages the load balancers.
      */
     disabled?: boolean | null;
+  }
+  /**
+   * IdentityServiceConfig is configuration for Identity Service which allows customers to use external identity providers with the K8S API
+   */
+  export interface Schema$IdentityServiceConfig {
+    /**
+     * Whether to enable the Identity Service component
+     */
+    enabled?: boolean | null;
   }
   /**
    * ILBSubsettingConfig contains the desired config of L4 Internal LoadBalancer subsetting on this cluster.
@@ -1527,6 +1544,10 @@ export namespace container_v1 {
      * Shielded Instance options.
      */
     shieldedInstanceConfig?: Schema$ShieldedInstanceConfig;
+    /**
+     * Spot flag for enabling Spot VM, which is a rebrand of the existing preemptible flag.
+     */
+    spot?: boolean | null;
     /**
      * The list of instance tags applied to all nodes. Tags are used to identify valid sources or targets for network firewalls and are specified by the client during cluster or node pool creation. Each tag within the list must comply with RFC1035.
      */
@@ -3639,6 +3660,7 @@ export namespace container_v1 {
      *   //   "endpoint": "my_endpoint",
      *   //   "expireTime": "my_expireTime",
      *   //   "id": "my_id",
+     *   //   "identityServiceConfig": {},
      *   //   "initialClusterVersion": "my_initialClusterVersion",
      *   //   "initialNodeCount": 0,
      *   //   "instanceGroupUrls": [],
@@ -9163,6 +9185,7 @@ export namespace container_v1 {
      *   //   "endpoint": "my_endpoint",
      *   //   "expireTime": "my_expireTime",
      *   //   "id": "my_id",
+     *   //   "identityServiceConfig": {},
      *   //   "initialClusterVersion": "my_initialClusterVersion",
      *   //   "initialNodeCount": 0,
      *   //   "instanceGroupUrls": [],
