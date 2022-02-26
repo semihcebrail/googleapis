@@ -2302,7 +2302,7 @@ export namespace chromemanagement_v1 {
      *   const res = await chromemanagement.customers.telemetry.devices.list({
      *     // Optional. Only include resources that match the filter. Supported filter fields: - org_unit_id - serial_number
      *     filter: 'placeholder-value',
-     *     // Maximum number of results to return. Maximum and default are 100.
+     *     // Maximum number of results to return. Default value is 100. Maximum value is 200.
      *     pageSize: 'placeholder-value',
      *     // Token to specify next page in the list.
      *     pageToken: 'placeholder-value',
@@ -2429,7 +2429,7 @@ export namespace chromemanagement_v1 {
      */
     filter?: string;
     /**
-     * Maximum number of results to return. Maximum and default are 100.
+     * Maximum number of results to return. Default value is 100. Maximum value is 200.
      */
     pageSize?: number;
     /**
