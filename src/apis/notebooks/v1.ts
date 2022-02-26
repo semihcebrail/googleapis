@@ -285,6 +285,10 @@ export namespace notebooks_v1 {
    */
   export interface Schema$Event {
     /**
+     * Optional. Event details. This field is used to pass event information.
+     */
+    details?: {[key: string]: string} | null;
+    /**
      * Event report time.
      */
     reportTime?: string | null;
@@ -391,6 +395,10 @@ export namespace notebooks_v1 {
      */
     serviceAccount?: string | null;
     /**
+     * The name of a Vertex AI [Tensorboard] resource to which this execution will upload Tensorboard logs. Format: `projects/{project\}/locations/{location\}/tensorboards/{tensorboard\}`
+     */
+    tensorboard?: string | null;
+    /**
      * Parameters used in Vertex AI JobType executions.
      */
     vertexAiParameters?: Schema$VertexAIParameters;
@@ -462,6 +470,10 @@ export namespace notebooks_v1 {
      * Output only. Instance creation time.
      */
     createTime?: string | null;
+    /**
+     * Output only. Email address of entity that sent original CreateInstance request.
+     */
+    creator?: string | null;
     /**
      * Specify a custom Cloud Storage path where the GPU driver is stored. If not specified, we'll automatically choose from official GPU drivers.
      */
@@ -959,11 +971,11 @@ export namespace notebooks_v1 {
     values?: string[] | null;
   }
   /**
-   * Request for reseting a notebook instance
+   * Request for resetting a notebook instance
    */
   export interface Schema$ResetInstanceRequest {}
   /**
-   * Request for reseting a Managed Notebook Runtime.
+   * Request for resetting a Managed Notebook Runtime.
    */
   export interface Schema$ResetRuntimeRequest {}
   /**
@@ -1102,7 +1114,7 @@ export namespace notebooks_v1 {
      */
     idleShutdownTimeout?: number | null;
     /**
-     * Install Nvidia Driver automatically.
+     * Install Nvidia Driver automatically. Default: True
      */
     installGpuDriver?: boolean | null;
     /**
@@ -1117,6 +1129,10 @@ export namespace notebooks_v1 {
      * Path to a Bash script that automatically runs after a notebook instance fully boots up. The path must be a URL or Cloud Storage path (`gs://path-to-file/file-name`).
      */
     postStartupScript?: string | null;
+    /**
+     * Output only. Bool indicating whether an newer image is available in an image family.
+     */
+    upgradeable?: boolean | null;
   }
   /**
    * The definition of a schedule.
@@ -1479,6 +1495,10 @@ export namespace notebooks_v1 {
      * Optional. The type of vNIC to be used on this interface. This may be gVNIC or VirtioNet.
      */
     nicType?: string | null;
+    /**
+     * Optional. Reserved IP Range name is used for VPC Peering. The subnetwork allocation will use the range *name* if it's assigned. Example: managed-notebooks-range-c PEERING_RANGE_NAME_3=managed-notebooks-range-c gcloud compute addresses create $PEERING_RANGE_NAME_3 \ --global \ --prefix-length=24 \ --description="Google Cloud Managed Notebooks Range 24 c" \ --network=$NETWORK \ --addresses=192.168.0.0 \ --purpose=VPC_PEERING Field value will be: `managed-notebooks-range-c`
+     */
+    reservedIpRange?: string | null;
     /**
      * Optional. Shielded VM Instance configuration settings.
      */
@@ -3117,6 +3137,7 @@ export namespace notebooks_v1 {
      *       //   "bootDiskType": "my_bootDiskType",
      *       //   "containerImage": {},
      *       //   "createTime": "my_createTime",
+     *       //   "creator": "my_creator",
      *       //   "customGpuDriverPath": "my_customGpuDriverPath",
      *       //   "dataDiskSizeGb": "my_dataDiskSizeGb",
      *       //   "dataDiskType": "my_dataDiskType",
@@ -3421,6 +3442,7 @@ export namespace notebooks_v1 {
      *   //   "bootDiskType": "my_bootDiskType",
      *   //   "containerImage": {},
      *   //   "createTime": "my_createTime",
+     *   //   "creator": "my_creator",
      *   //   "customGpuDriverPath": "my_customGpuDriverPath",
      *   //   "dataDiskSizeGb": "my_dataDiskSizeGb",
      *   //   "dataDiskType": "my_dataDiskType",
