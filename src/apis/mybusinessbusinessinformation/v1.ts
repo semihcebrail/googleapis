@@ -522,7 +522,7 @@ export namespace mybusinessbusinessinformation_v1 {
      */
     phoneNumbers?: Schema$PhoneNumbers;
     /**
-     * Required. Describes your business in your own voice and shares with users the unique story of your business and offerings.
+     * Optional. Describes your business in your own voice and shares with users the unique story of your business and offerings. This field is required for all categories except lodging categories (e.g. hotels, motels, inns).
      */
     profile?: Schema$Profile;
     /**
@@ -530,7 +530,7 @@ export namespace mybusinessbusinessinformation_v1 {
      */
     regularHours?: Schema$BusinessHours;
     /**
-     * Output only. All locations and chain related to this one.
+     * Optional. All locations and chain related to this one.
      */
     relationshipData?: Schema$RelationshipData;
     /**
@@ -751,7 +751,7 @@ export namespace mybusinessbusinessinformation_v1 {
      */
     recipients?: string[] | null;
     /**
-     * Required. CLDR region code of the country/region of the address. This is never inferred and it is up to the user to ensure the value is correct. See http://cldr.unicode.org/ and http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html for details. Example: "CH" for Switzerland.
+     * Required. CLDR region code of the country/region of the address. This is never inferred and it is up to the user to ensure the value is correct. See https://cldr.unicode.org/ and https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html for details. Example: "CH" for Switzerland.
      */
     regionCode?: string | null;
     /**
