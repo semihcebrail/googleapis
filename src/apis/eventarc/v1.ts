@@ -190,7 +190,7 @@ export namespace eventarc_v1 {
    */
   export interface Schema$Destination {
     /**
-     * The Cloud Function resource name. Only Cloud Functions V2 is supported. Format: projects/{project\}/locations/{location\}/functions/{function\}
+     * The Cloud Function resource name. Only Cloud Functions V2 is supported. Format: `projects/{project\}/locations/{location\}/functions/{function\}`
      */
     cloudFunction?: string | null;
     /**
@@ -215,6 +215,10 @@ export namespace eventarc_v1 {
      */
     attribute?: string | null;
     /**
+     * Optional. The operator used for matching the events with the value of the filter. If not specified, only events that have an exact key-value pair specified in the filter are matched. The only allowed value is `match-path-pattern`.
+     */
+    operator?: string | null;
+    /**
      * Required. The value for the attribute.
      */
     value?: string | null;
@@ -236,7 +240,7 @@ export namespace eventarc_v1 {
      */
     filteringAttributes?: Schema$FilteringAttribute[];
     /**
-     * Output only. The full name of the event type (for example, "google.cloud.storage.object.v1.finalized"). In the form of {provider-id\}.{resource\}.{version\}.{verb\}. Types MUST be versioned and event schemas are guaranteed to remain backward compatible within one version. Note that event type versions and API versions do not need to match.
+     * Output only. The full name of the event type (for example, "google.cloud.storage.object.v1.finalized"). In the form of {provider-specific-prefix\}.{resource\}.{version\}.{verb\}. Types MUST be versioned and event schemas are guaranteed to remain backward compatible within one version. Note that event type versions and API versions do not need to match.
      */
     type?: string | null;
   }
@@ -505,7 +509,7 @@ export namespace eventarc_v1 {
      */
     eventTypes?: Schema$EventType[];
     /**
-     * Output only. In `projects/{project\}/locations/{location\}/providers/{provider-id\}` format.
+     * Output only. In `projects/{project\}/locations/{location\}/providers/{provider_id\}` format.
      */
     name?: string | null;
   }
