@@ -249,7 +249,7 @@ export namespace accessapproval_v1 {
      */
     dismissTime?: string | null;
     /**
-     * This field will be true if the ApprovalRequest was implcitly dismissed due to inaction by the access approval approvers (the request is not acted on by the approvers before the exiration time).
+     * This field will be true if the ApprovalRequest was implicitly dismissed due to inaction by the access approval approvers (the request is not acted on by the approvers before the exiration time).
      */
     implicit?: boolean | null;
   }
